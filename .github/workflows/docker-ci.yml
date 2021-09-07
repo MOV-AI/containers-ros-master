@@ -21,7 +21,7 @@ jobs:
       - name: Hadolint melodic
         uses: hadolint/hadolint-action@v1.6.0
         with:
-          dockerfile: develop/melodic/Dockerfile
+          dockerfile: melodic/Dockerfile
           format: tty
           failure-threshold: error # optional, default is info
           # A space separated string of rules to ignore
@@ -72,7 +72,7 @@ jobs:
           registry: registry.cloud.mov.ai
 
       - name: Build and push noetic
-        uses: develop/docker/build-push-action@v2
+        uses: docker/build-push-action@v2
         with:
           context: .
           file: noetic/Dockerfile
