@@ -11,10 +11,11 @@ on:
       - main
 jobs:
   DeployMelodic:
-    env:
-      PUSH_TO_REGISTRY: ${{ env.BRANCH == main }}
     runs-on: ubuntu-20.04
     steps:
+      - name: Set push var
+        run: |
+          echo "::set-env name=PUSH_TO_REGISTRY::${{ env.BRANCH == main }}"
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -47,10 +48,11 @@ jobs:
           pull: true
 
   DeployNoetic:
-    env:
-      PUSH_TO_REGISTRY: ${{ env.BRANCH == main }}
     runs-on: ubuntu-20.04
     steps:
+      - name: Set push var
+        run: |
+          echo "::set-env name=PUSH_TO_REGISTRY::${{ env.BRANCH == main }}"
       - name: Checkout
         uses: actions/checkout@v2
 
