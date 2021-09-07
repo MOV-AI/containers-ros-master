@@ -13,6 +13,8 @@ jobs:
   DeployMelodic:
     runs-on: ubuntu-20.04
     steps:
+      - run: echo "${{ github.ref }}"
+      - run: env
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -39,7 +41,7 @@ jobs:
         with:
           context: .
           file: melodic/Dockerfile
-          push: ${{ env.BRANCH == 'main' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
           tags: registry.cloud.mov.ai/develop/ros-master:melodic
           build-args:
           pull: true
@@ -73,7 +75,7 @@ jobs:
         with:
           context: .
           file: noetic/Dockerfile
-          push: ${{ env.BRANCH == 'main' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
           tags: registry.cloud.mov.ai/develop/ros-master:noetic
           build-args:
           pull: true
