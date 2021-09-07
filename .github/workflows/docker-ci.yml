@@ -12,7 +12,7 @@ on:
 jobs:
   DeployMelodic:
     env:
-      PUSH_TO_REGISTRY: ${{ github.event.pull_request.merged == true }}
+      PUSH_TO_REGISTRY: ${{ env.BRANCH == main }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -48,7 +48,7 @@ jobs:
 
   DeployNoetic:
     env:
-      PUSH_TO_REGISTRY: ${{ github.event.pull_request.merged == true }}
+      PUSH_TO_REGISTRY: ${{ env.BRANCH == main }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
