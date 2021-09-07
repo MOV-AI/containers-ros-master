@@ -44,6 +44,7 @@ jobs:
           push: ${{env.PUSH_TO_REGISTRY}}
           tags: registry.cloud.mov.ai/develop/ros-master:melodic
           build-args:
+          pull: true
 
   DeployNoetic:
     env:
@@ -79,3 +80,5 @@ jobs:
           push: ${{env.PUSH_TO_REGISTRY}}
           tags: registry.cloud.mov.ai/develop/ros-master:noetic
           build-args:
+          pull: true
+
