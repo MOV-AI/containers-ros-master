@@ -13,9 +13,6 @@ jobs:
   DeployMelodic:
     runs-on: ubuntu-20.04
     steps:
-      - name: Set push var
-        run: |
-          echo "::set-env name=PUSH_TO_REGISTRY::${{ env.BRANCH == main }}"
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -42,7 +39,7 @@ jobs:
         with:
           context: .
           file: melodic/Dockerfile
-          push: ${{env.PUSH_TO_REGISTRY}}
+          push: ${{ env.BRANCH == main }}
           tags: registry.cloud.mov.ai/develop/ros-master:melodic
           build-args:
           pull: true
@@ -50,9 +47,6 @@ jobs:
   DeployNoetic:
     runs-on: ubuntu-20.04
     steps:
-      - name: Set push var
-        run: |
-          echo "::set-env name=PUSH_TO_REGISTRY::${{ env.BRANCH == main }}"
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -79,7 +73,7 @@ jobs:
         with:
           context: .
           file: noetic/Dockerfile
-          push: ${{env.PUSH_TO_REGISTRY}}
+          push: ${{ env.BRANCH == main }}
           tags: registry.cloud.mov.ai/develop/ros-master:noetic
           build-args:
           pull: true
