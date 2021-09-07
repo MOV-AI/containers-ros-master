@@ -1,13 +1,18 @@
 name: "Deploy to Docker Registry"
 
 on:
+  # Trigger the workflow on push or pull request,
+  # but only for the main branch
   push:
     branches:
       - main
-
+  pull_request:
+    branches:
+      - main
 jobs:
   DeployMelodic:
-    # this job will only run if the PR has been merged
+    env:
+      PUSH_TO_REGISTRY: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -36,12 +41,13 @@ jobs:
         with:
           context: .
           file: melodic/Dockerfile
-          push: true
+          push: ${{ PUSH_TO_REGISTRY }}
           tags: registry.cloud.mov.ai/develop/ros-master:melodic
           build-args:
 
   DeployNoetic:
-    # this job will only run if the PR has been merged
+    env:
+      PUSH_TO_REGISTRY: ${{ github.event.pull_request.merged == true }}
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
