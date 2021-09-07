@@ -41,7 +41,7 @@ jobs:
         with:
           context: .
           file: melodic/Dockerfile
-          push: ${{ PUSH_TO_REGISTRY }}
+          push: ${PUSH_TO_REGISTRY}
           tags: registry.cloud.mov.ai/develop/ros-master:melodic
           build-args:
 
@@ -76,6 +76,6 @@ jobs:
         with:
           context: .
           file: noetic/Dockerfile
-          push: true
+          push: ${PUSH_TO_REGISTRY}
           tags: registry.cloud.mov.ai/develop/ros-master:noetic
           build-args:
