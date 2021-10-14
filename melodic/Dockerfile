@@ -1,5 +1,5 @@
 ARG DOCKER_REGISTRY="registry.cloud.mov.ai"
-FROM ${DOCKER_REGISTRY}/devops/movai-base-melodic:v1.0.0
+FROM ${DOCKER_REGISTRY}/devops/movai-base-melodic:v1.0.1
 
 # Labels
 LABEL description="MOV.AI Ros Master Base Image"
