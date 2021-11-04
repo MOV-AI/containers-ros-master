@@ -1,4 +1,4 @@
-name: "Build&Deploy MOVAI ROS-master images"
+name: "Build&Deploy ros-master images"
 
 on:
   # Trigger the workflow on push or pull request
@@ -17,7 +17,7 @@ on:
   #     types: [released]
 jobs:
   ros-master-melodic:
-    uses: MOV-AI/containers-movai-base/.github/workflows/docker-workflow.yml@v1.0.1
+    uses: MOV-AI/.github/.github/workflows/docker-workflow.yml@main
     with:
       docker_file: melodic/Dockerfile
       docker_image: registry.cloud.mov.ai/devops/ros-master-melodic
@@ -26,7 +26,7 @@ jobs:
       registry_user: ${{ secrets.PORTUS_APP_USER }}
       registry_password: ${{ secrets.PORTUS_APP_TOKEN }}
   ros-master-noetic:
-    uses: MOV-AI/containers-movai-base/.github/workflows/docker-workflow.yml@v1.0.1
+    uses: MOV-AI/.github/.github/workflows/docker-workflow.yml@main
     with:
       docker_file: noetic/Dockerfile
       docker_image: registry.cloud.mov.ai/devops/ros-master-noetic
