@@ -1,5 +1,5 @@
-ARG DOCKER_REGISTRY="ghcr.io/mov-ai"
-FROM ${DOCKER_REGISTRY}/ce/movai-base-noetic:v1.4.9
+ARG DOCKER_REGISTRY="pubregistry.aws.cloud.mov.ai"
+FROM ${DOCKER_REGISTRY}/ce/movai-base-noetic:v1.4.11
 
 # Labels
 LABEL description="MOV.AI Ros Master Base Image"
