@@ -1,5 +1,5 @@
-ARG DOCKER_REGISTRY="registry.cloud.mov.ai"
-FROM ${DOCKER_REGISTRY}/devops/movai-base-melodic:v1.4.5
+ARG DOCKER_REGISTRY="pubregistry.aws.cloud.mov.ai"
+FROM ${DOCKER_REGISTRY}/ce/movai-base-melodic:v1.4.11
 
 # Labels
 LABEL description="MOV.AI Ros Master Base Image"
