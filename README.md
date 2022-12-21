@@ -6,6 +6,4 @@ MOVAI ROS master image
 
 # quickstart
 
-    docker run -d pubregistry.aws.cloud.mov.ai/ce/ros-master-melodic:latest
-    #or
     docker run -d pubregistry.aws.cloud.mov.ai/ce/ros-master-noetic:latest
