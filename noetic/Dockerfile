@@ -14,4 +14,7 @@ ENV APP_NAME="ros-master" \
 COPY files/movai-entrypoint.sh /usr/local/bin/movai-entrypoint.sh
 COPY files/health-check.sh /usr/local/bin/health-check.sh
 
+RUN curl -fsSL https://artifacts.aws.cloud.mov.ai/repository/movai-applications/gpg | apt-key add - && \
+    curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros.key
+
 USER movai
