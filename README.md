@@ -13,10 +13,10 @@ MOVAI ROS master image
 ## BP-117: Reason: new node registered with same name
 
 This bug occurs when rosmaster's `RegistrationManager.nodes` list has references to nodes that already stopped.
-When registering topics/services/params for a new instance of a node alredy present in the list, rosmaster requests the
+When registering topics/services/params for a new instance of a node already present in the list, rosmaster requests the
 previous instance to terminate.
 But when that happens the URI associated to the previous node instance might be already in use by a different node
-and which shutsdown.
+and which shuts down.
 
 This can happen because `rosnode cleanup` doesn't unsubscribe from params, but param subscriptions were
 considered when checking if a node could be removed from rosmaster's `RegistrationManager.nodes`.
