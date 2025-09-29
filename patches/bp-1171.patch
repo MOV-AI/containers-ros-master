@@ -1,0 +1,12 @@
+--- ros-overwrite/registrations_original.py	2025-09-29 10:00:51.453916626 +0100
++++ ros-overwrite/registrations.py	2025-09-29 10:00:56.871403426 +0100
+@@ -72,8 +72,7 @@
+         @return: True if node has no active registrations
+         """
+         return sum((len(x) for x in
+-                    [self.param_subscriptions, 
+-                     self.topic_subscriptions,
++                    [self.topic_subscriptions,
+                      self.topic_publications,
+                      self.services,])) == 0
+     

@@ -1,4 +1,4 @@
-REGISTRY="registry.cloud.mov.ai"
+REGISTRY="registry.hel.mov.ai"
 ENV="devops"
 IMAGE_NAME="ros-master-noetic"
 IMAGE_TAG="local"
