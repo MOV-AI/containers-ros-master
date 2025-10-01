@@ -17,4 +17,9 @@ COPY files/health-check.sh /usr/local/bin/health-check.sh
 RUN curl -fsSL https://artifacts.aws.cloud.mov.ai/repository/movai-applications/gpg | apt-key add - && \
     curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros.key
 
+# apply patches
+COPY patches/ /patches/
+
+RUN patch /opt/ros/noetic/lib/python3/dist-packages/rosmaster/registrations.py < /patches/bp-1171.patch
+
 USER movai
